@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+  <main class="flex flex-col justify-center items-center my-5">
+    <div class="flex flex-col" id="searchBox">
+      <input type="search" name="" id="" placeholder="Search City..."
+        class="py-3 pl-10 pr-50 rounded-3xl outline-none text-white font-bold flex justify-center">
+      <i class="fa-solid fa-magnifying-glass" id="iconSearch""></i>
+      </div>
+    </div>
+    <div class=" flex flex-col lg:flex-row gap-5">
+        <section>
+          <div class=" flex justify-between">
+            <div>
+              <div class="flex item-center justify-center">
+                <i class=" fa-solid fa-location-dot" id="locationIcon"></i>
+                <h2 class="text-lg">Shiraz</h2>
+              </div>
+              <p class="text-[12px] pl-6">Iran</p>
+            </div>
+            <div>
+              <p class="text-[12px]">Local Time</p>
+              <p class="text-[12px]">4:26 PM</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center">
+            <h1 class="text-[100px]">36</h1>
+            <p class="text-2xl">° C</p>
+            <img src="/img/icon/01d.svg" alt="" class="size-[200px]">
+          </div>
+          <div>
+            <h3 class="text-md">Sunny</h3>
+            <p class="text-sm">it's a clear day.Enjoy the sunshine!</p>
+          </div>
+
+          <hr>
+          <div class="flex flex-row gap-2">
+            <div class="smallBox flex flex-col items-center justify-center text-center">
+              <img src="/img/icon/weather-humidity-rain-svgrepo-com.svg" alt="Humiditi" class="size-[25px] mb-2">
+              <p>Humidity</p>
+              <p>9%</p>
+            </div>
+            <div class="smallBox flex flex-col items-center justify-center text-center">
+              <img src="/img/icon/weather-windy-cloudy-svgrepo-com.svg" alt="wind" class="size-[25px] mb-2">
+              <p>wind</p>
+              <p>4 m/s</p>
+            </div>
+            <div class="smallBox flex flex-col items-center justify-center text-center">
+              <img src="/img/icon/weather-temperature-forecast-svgrepo-com.svg" alt="seels like"
+                class="size-[25px] mb-2">
+              <p>feels like</p>
+              <p>30 °C</p>
+            </div>
+            <div class="smallBox flex flex-col items-center justify-center text-center">
+              <img src="/img/icon/eye-visibility-visible-hide-hidden-show-watch-svgrepo-com.svg" alt="visibility"
+                class="size-[30px] mb-2">
+              <p>visibility</p>
+              <p>10 km</p>
+            </div>
+          </div>
+
+        </section>
+
+        <section>
+          <div class="flex">
+            <img src="/img/icon/svgexport-35.svg" alt="">
+            <h2 class="pl-2">5-Day Forecast</h2>
+          </div>
+          <div class="flex justify-center items-center gap-5 mt-5 mb-3" id="futureDaysBox">
+            <p>Mon</p>
+            <img src="/img/icon/01d.svg" alt="" class="size-[45px]">
+            <p>32 °C</p>
+            <p class="text-[#c2c2c2]">18 °C</p>
+          </div>
+          <div class="flex justify-center items-center gap-5" id="futureDaysBox">
+            <p>Tue</p>
+            <img src="/img/icon/01d.svg" alt="" class="size-[45px]">
+            <p>32 °C</p>
+            <p class="text-[#c2c2c2]">18 °C</p>
+          </div>
+          <div class="flex justify-center items-center gap-5 my-3" id="futureDaysBox">
+            <p>Wed</p>
+            <img src="/img/icon/01d.svg" alt="" class="size-[45px]">
+            <p>32 °C</p>
+            <p class="text-[#c2c2c2]">18 °C</p>
+          </div>
+          <div class="flex justify-center items-center gap-5 my-3" id="futureDaysBox">
+            <p>Thu</p>
+            <img src="/img/icon/01d.svg" alt="" class="size-[45px]">
+            <p>32 °C</p>
+            <p class="text-[#c2c2c2]">18 °C</p>
+          </div>
+          <div class="flex justify-center items-center gap-5 my-3" id="futureDaysBox">
+            <p>Fri</p>
+            <img src="/img/icon/01d.svg" alt="" class="size-[45px]">
+            <p>32 °C</p>
+            <p class="text-[#c2c2c2]">18 °C</p>
+          </div>
+        </section>
+    </div>
+  </main>
+  <script src="/script.js"></script>
+</body>
+
+</html>

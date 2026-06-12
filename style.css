@@ -1,0 +1,76 @@
+body {
+    background-image: url("./img/background/IMG_5805.JPG");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchBox {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+#iconSearch {
+    color: white;
+    position: absolute;
+    top: 35%;
+    left: 15px;
+}
+
+section {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    color: white;
+    padding: 20px;
+    min-height: 50px;
+}
+
+#locationIcon {
+    padding: 5px;
+    font-size: larger;
+}
+
+hr {
+    border: 1.5px solid rgba(255, 255, 255, 0.364);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.smallBox {
+    width: 100px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    color: white;
+    padding: 10px;
+}
+
+#futureDaysBox {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 9px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
