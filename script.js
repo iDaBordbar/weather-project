@@ -5,13 +5,14 @@ const timeTitel = document.getElementById("timeTitel");
 const tempTitel = document.getElementById("tempTitel");
 const weatherIcon = document.getElementById("weatherIcon");
 const weatherStatus = document.getElementById("weatherStatus")
-
+const weatherDescription = document.getElementById("weatherDescription")
 
 
 function getWeatherIcon(code, isDay) {
 
     if (code === 0) return isDay ? "/img/icon/clear-day.svg" : "/img/icon/clear-night.svg";
-    if (code <= 2) return isDay ? "/img/icon/mostly-clear-night.svg" : "/img/icon/mostly-clear-day.svg";
+    if (code === 1) return isDay ? "/img/icon/mostly-clear-night.svg" : "/img/icon/mostly-clear-day.svg";
+    if (code === 2) return isDay ?  "/img/icon/partly-cloudy-day.svg" : "/img/icon/partly-cloudy-night.svg";
     if (code === 3) return "/img/icon/cloudy.svg";
     if (code <= 48) return "/img/icon/overcast-fog.svg";
     if (code <= 55) return "/img/icon/drizzle.svg";
@@ -28,7 +29,8 @@ function getWeatherIcon(code, isDay) {
 function getWeatherStatus(code, isDay) {
 
     if (code === 0) return isDay ? "Sunny": "Clear Sky";
-    if (code <= 2) return isDay ? "Mostly Clear" : "Mostly Clear Night";
+    if (code === 1) return isDay ? "Mostly Clear" : "Mostly Clear Night";
+    if (code === 2) return isDay ? "Partly Cloudy Day" : "Partly Cloudy Night";
     if (code === 3) return "Cloudy";
     if (code <= 48) return "Foggy";
     if (code <= 55) return "Drizzle";
@@ -37,6 +39,24 @@ function getWeatherStatus(code, isDay) {
     if (code <= 82) return "Showers";
     if (code <= 99) return "Thunderstorm";
     return isDay ? "Sunny" : "Clear Sky";
+
+}
+
+
+
+function getWeatherDescription(code, isDay) {
+    if (code === 0) return isDay ? "It's a clear day. Enjoy the sunshine! ☀️" : "It's a clear day. Enjoy the sunshine! ☀️";
+    if (code === 1) return isDay ? "It's a mostly clear day. Pretty nice outside! 🌤️" : "It's a mostly clear night. 🌥️";
+    if (code === 2) return isDay ? "It's partly cloudy. Still a nice day outside! ⛅️" : "It's partly cloudy tonight. 🌙";
+    if (code === 3) return "It's cloudy outside. Maybe grab a jacket! ☁️";
+    if (code <= 48) return "It's foggy outside. Drive carefully! 🌫️";
+    if (code <= 55) return "It's drizzling outside. Don't forget your umbrella! 🌦️";
+    if (code <= 65) return "It's rainy outside.Enjoy the rain! 🌧️"
+    if (code <= 77) return "It's snowy outside. Let's play in the snow! ⛄️";
+    if (code <= 82) return "There are showers outside. 🌧️";
+    if (code <= 99) return "There's a thunderstorm outside. Stay safe! ⛈️";
+    return "Enjoy your day! 🌈";
+
 
 }
 
@@ -68,11 +88,12 @@ async function getWeather() {
 
 
     const weatherResult = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=weather_code&timezone=auto`
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=weather_code&timezone=auto&hourly=relative_humidity_2m`
     );
     const weatherData = await weatherResult.json();
 
-    console.log(weatherData);
+    console.log(weatherResult);
+    
 
 
     const timeZone = weatherData.timezone;
@@ -97,6 +118,8 @@ async function getWeather() {
     weatherIcon.src = icon;
 
     weatherStatus.textContent = getWeatherStatus(code, isDay);
+
+    weatherDescription.textContent = getWeatherDescription(code, isDay);
 }
 
 
