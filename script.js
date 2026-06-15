@@ -4,15 +4,19 @@ const countryTitel = document.getElementById("countryTitel");
 const timeTitel = document.getElementById("timeTitel");
 const tempTitel = document.getElementById("tempTitel");
 const weatherIcon = document.getElementById("weatherIcon");
-const weatherStatus = document.getElementById("weatherStatus")
-const weatherDescription = document.getElementById("weatherDescription")
+const weatherStatus = document.getElementById("weatherStatus");
+const weatherDescription = document.getElementById("weatherDescription");
+const humidityTitel = document.getElementById("humidityTitel");
+const windSpeed = document.getElementById("windSpeed");
+const feelsLikeTitel = document.getElementById("feelsLikeTitel")
+const visibilityTitel = document.getElementById("visibilityTitel")
 
 
 function getWeatherIcon(code, isDay) {
 
     if (code === 0) return isDay ? "/img/icon/clear-day.svg" : "/img/icon/clear-night.svg";
     if (code === 1) return isDay ? "/img/icon/mostly-clear-night.svg" : "/img/icon/mostly-clear-day.svg";
-    if (code === 2) return isDay ?  "/img/icon/partly-cloudy-day.svg" : "/img/icon/partly-cloudy-night.svg";
+    if (code === 2) return isDay ? "/img/icon/partly-cloudy-day.svg" : "/img/icon/partly-cloudy-night.svg";
     if (code === 3) return "/img/icon/cloudy.svg";
     if (code <= 48) return "/img/icon/overcast-fog.svg";
     if (code <= 55) return "/img/icon/drizzle.svg";
@@ -28,7 +32,7 @@ function getWeatherIcon(code, isDay) {
 
 function getWeatherStatus(code, isDay) {
 
-    if (code === 0) return isDay ? "Sunny": "Clear Sky";
+    if (code === 0) return isDay ? "Sunny" : "Clear Sky";
     if (code === 1) return isDay ? "Mostly Clear" : "Mostly Clear Night";
     if (code === 2) return isDay ? "Partly Cloudy Day" : "Partly Cloudy Night";
     if (code === 3) return "Cloudy";
@@ -88,12 +92,13 @@ async function getWeather() {
 
 
     const weatherResult = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=weather_code&timezone=auto&hourly=relative_humidity_2m`
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=weather_code&timezone=auto&hourly=relative_humidity_2m,apparent_temperature,visibility`
     );
     const weatherData = await weatherResult.json();
 
+    // console.log(weatherData);
     console.log(weatherResult);
-    
+
 
 
     const timeZone = weatherData.timezone;
@@ -110,7 +115,6 @@ async function getWeather() {
 
     console.log(weatherData.current_weather.weathercode);
 
-    console.log(cityName, weatherData);
 
     const code = weatherData.current_weather.weathercode;
     const isDay = weatherData.current_weather.is_day;
@@ -118,8 +122,20 @@ async function getWeather() {
     weatherIcon.src = icon;
 
     weatherStatus.textContent = getWeatherStatus(code, isDay);
-
     weatherDescription.textContent = getWeatherDescription(code, isDay);
+
+
+    const humidity = weatherData.hourly.relative_humidity_2m[0];
+    humidityTitel.textContent = humidity + "%";
+
+    const wind = weatherData.current_weather.windspeed;
+    windSpeed.textContent = Math.round(wind)+ " km/h";
+
+    const feelLike = Math.round(weatherData.hourly.apparent_temperature[0]);
+    feelsLikeTitel.textContent = feelLike + " °C";
+
+    const visibility = Math.round(weatherData.hourly.visibility[0] / 1000);
+    visibilityTitel.textContent = visibility + " km";
 }
 
 
