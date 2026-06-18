@@ -47,7 +47,6 @@ function getWeatherIcon(code, isDay) {
     if (code <= 99) return "./img/icon/thunderstorms-drizzle.svg";
     return isDay ? "./img/icon/clear-day.svg" : "./img/icon/clear-night.svg";
 
-
 }
 
 
