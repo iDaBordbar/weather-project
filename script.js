@@ -175,7 +175,7 @@ async function getWeather() {
         const min = Math.round(days.temperature_2m_min[i]);
 
          futureDaysContainer.innerHTML += `
-        <div class="flex justify-center items-center mt-3 gap-7 bg-white/30 background-blur-lg rounded-lg px-3 py-1">
+        <div class="flex justify-center items-center mt-3 gap-4 md:gap-7 bg-white/30 background-blur-lg rounded-lg px-3 py-1">
             <p>${dayName}</p>
             <img src="${icon}" alt="" class="size-[45px]">
             <p>${max} °C</p>
