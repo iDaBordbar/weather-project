@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   </head>
@@ -36,7 +36,7 @@
             <div class="flex justify-between items-center">
               <h1 class="text-[100px] pl-8" id="tempTitel">--</h1>
               <p class="text-2xl">° C</p>
-              <img src="/img/icon/01d.svg" alt="" class="size-[200px]" id="weatherIcon">
+              <img src="./img/icon/01d.svg" alt="" class="size-[200px]" id="weatherIcon">
             </div>
             <div>
               <h3 class="text-md" id="weatherStatus""></h3>
@@ -46,23 +46,23 @@
             <hr>
             <div class="flex flex-row gap-2">
               <div class="smallBox flex flex-col items-center justify-center text-center">
-                <img src="/img/smallIcon/weather-humidity-rain-svgrepo-com copy.svg" alt="Humiditi" class="size-[25px] mb-2">
+                <img src="./img/smallIcon/weather-humidity-rain-svgrepo-com copy.svg" alt="Humiditi" class="size-[25px] mb-2">
                 <p>Humidity</p>
                 <p id="humidityTitel">-- %</p>
               </div>
               <div class="smallBox flex flex-col items-center justify-center text-center">
-                <img src="/img/smallIcon/weather-windy-cloudy-svgrepo-com.svg" alt="wind" class="size-[25px] mb-2">
+                <img src="./img/smallIcon/weather-windy-cloudy-svgrepo-com.svg" alt="wind" class="size-[25px] mb-2">
                 <p>wind</p>
                 <p id="windSpeed">-- km/h</p>
               </div>
               <div class="smallBox flex flex-col items-center justify-center text-center">
-                <img src="/img/smallIcon/weather-temperature-forecast-svgrepo-com.svg" alt="seels like"
+                <img src="./img/smallIcon/weather-temperature-forecast-svgrepo-com.svg" alt="seels like"
                   class="size-[25px] mb-2">
                 <p>feels like</p>
                 <p id="feelsLikeTitel">-- °C</p>
               </div>
               <div class="smallBox flex flex-col items-center justify-center text-center">
-                <img src="/img/smallIcon/visibility-medical-svgrepo-com.svg" alt="visibility"
+                <img src="./img/smallIcon/visibility-medical-svgrepo-com.svg" alt="visibility"
                   class="size-[25px] mb-2">
                 <p>visibility</p>
                 <p id="visibilityTitel">-- km</p>
@@ -73,7 +73,7 @@
 
           <section class="lg:self-start">
             <div class="flex">
-              <img src="/img/smallIcon/svgexport-35.svg" alt="">
+              <img src="img/smallIcon/svgexport-35.svg" alt="">
               <h2 class="pl-2">5-Day Forecast</h2>
             </div>
             <div id="futureDaysContainer">
@@ -82,6 +82,6 @@
           </section>
       </div>
     </main>
-    <script src="/script.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

@@ -19,14 +19,14 @@ const futureDaysContainer = document.getElementById("futureDaysContainer");
 
 function getWeatherBackground(code, isDay) {
 
-    if (code <= 2) return isDay ? "/img/background/IMG_5804.JPG" : "/img/background/IMG_6045.JPG";
-    if (code === 3) return "/img/background/IMG_6046.JPG";
-    if (code <= 48) return "/img/background/IMG_6056.JPG";
-    if (code <= 65) return "/img/background/IMG_6048.JPG"
-    if (code <= 77) return "/img/background/IMG_6053.JPG";
-    if (code <= 82) return "/img/background/IMG_6048.JPG";
-    if (code <= 99) return "/img/background/IMG_6060.JPG";
-    return isDay ? "/img/background/IMG_5804.JPG" : "/img/background/IMG_6045.JPG";
+    if (code <= 2) return isDay ? "./img/background/IMG_5804.JPG" : "./img/background/IMG_6045.JPG";
+    if (code === 3) return "./img/background/IMG_6046.JPG";
+    if (code <= 48) return "./img/background/IMG_6056.JPG";
+    if (code <= 65) return "./img/background/IMG_6048.JPG"
+    if (code <= 77) return "./img/background/IMG_6053.JPG";
+    if (code <= 82) return "./img/background/IMG_6048.JPG";
+    if (code <= 99) return "./img/background/IMG_6060.JPG";
+    return isDay ? "./img/background/IMG_5804.JPG" : "./img/background/IMG_6045.JPG";
 
 
 }
@@ -35,17 +35,17 @@ function getWeatherBackground(code, isDay) {
 
 function getWeatherIcon(code, isDay) {
 
-    if (code === 0) return isDay ? "/img/icon/clear-day.svg" : "/img/icon/clear-night.svg";
-    if (code === 1) return isDay ? "/img/icon/mostly-clear-night.svg" : "/img/icon/mostly-clear-day.svg";
-    if (code === 2) return isDay ? "/img/icon/partly-cloudy-day.svg" : "/img/icon/partly-cloudy-night.svg";
-    if (code === 3) return "/img/icon/cloudy.svg";
-    if (code <= 48) return "/img/icon/overcast-fog.svg";
-    if (code <= 55) return "/img/icon/drizzle.svg";
-    if (code <= 65) return "/img/icon/rain.svg"
-    if (code <= 77) return "/img/icon/snow.svg";
-    if (code <= 82) return "/img/icon/drizzle.svg";
-    if (code <= 99) return "/img/icon/thunderstorms-drizzle.svg";
-    return isDay ? "/img/icon/clear-day.svg" : "/img/icon/clear-night.svg";
+    if (code === 0) return isDay ? "./img/icon/clear-day.svg" : "./img/icon/clear-night.svg";
+    if (code === 1) return isDay ? "./img/icon/mostly-clear-night.svg" : "./img/icon/mostly-clear-day.svg";
+    if (code === 2) return isDay ? "./img/icon/partly-cloudy-day.svg" : "./img/icon/partly-cloudy-night.svg";
+    if (code === 3) return "./img/icon/cloudy.svg";
+    if (code <= 48) return "./img/icon/overcast-fog.svg";
+    if (code <= 55) return "./img/icon/drizzle.svg";
+    if (code <= 65) return "./img/icon/rain.svg"
+    if (code <= 77) return "./img/icon/snow.svg";
+    if (code <= 82) return "./img/icon/drizzle.svg";
+    if (code <= 99) return "./img/icon/thunderstorms-drizzle.svg";
+    return isDay ? "./img/icon/clear-day.svg" : "./img/icon/clear-night.svg";
 
 
 }
