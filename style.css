@@ -1,5 +1,5 @@
 body {
-    background-image: url("./img/background/IMG_5805.JPG");
+    background-image: url("/img//background//IMG_5804.JPG");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -61,7 +61,7 @@ hr {
     padding: 10px;
 }
 
-#futureDaysBox {
+/* #futureDaysContainer {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(2px);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -72,4 +72,4 @@ hr {
     padding-right: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
-}
+} */

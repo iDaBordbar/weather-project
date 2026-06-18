@@ -8,8 +8,29 @@ const weatherStatus = document.getElementById("weatherStatus");
 const weatherDescription = document.getElementById("weatherDescription");
 const humidityTitel = document.getElementById("humidityTitel");
 const windSpeed = document.getElementById("windSpeed");
-const feelsLikeTitel = document.getElementById("feelsLikeTitel")
-const visibilityTitel = document.getElementById("visibilityTitel")
+const feelsLikeTitel = document.getElementById("feelsLikeTitel");
+const visibilityTitel = document.getElementById("visibilityTitel");
+const futureDaysContainer = document.getElementById("futureDaysContainer");
+
+
+
+
+
+
+function getWeatherBackground(code, isDay) {
+
+    if (code <= 2) return isDay ? "/img/background/IMG_5804.JPG" : "/img/background/IMG_6045.JPG";
+    if (code === 3) return "/img/background/IMG_6046.JPG";
+    if (code <= 48) return "/img/background/IMG_6056.JPG";
+    if (code <= 65) return "/img/background/IMG_6048.JPG"
+    if (code <= 77) return "/img/background/IMG_6053.JPG";
+    if (code <= 82) return "/img/background/IMG_6048.JPG";
+    if (code <= 99) return "/img/background/IMG_6060.JPG";
+    return isDay ? "/img/background/IMG_5804.JPG" : "/img/background/IMG_6045.JPG";
+
+
+}
+
 
 
 function getWeatherIcon(code, isDay) {
@@ -92,7 +113,7 @@ async function getWeather() {
 
 
     const weatherResult = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=weather_code&timezone=auto&hourly=relative_humidity_2m,apparent_temperature,visibility`
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=weather_code&timezone=auto&hourly=relative_humidity_2m,apparent_temperature,visibility&daily=temperature_2m_max,temperature_2m_min,weathercode`
     );
     const weatherData = await weatherResult.json();
 
@@ -136,8 +157,42 @@ async function getWeather() {
 
     const visibility = Math.round(weatherData.hourly.visibility[0] / 1000);
     visibilityTitel.textContent = visibility + " km";
+
+
+
+    //5-days forcast
+
+    futureDaysContainer.innerHTML = "";
+
+    const days = weatherData.daily;
+
+    console.log(days);
+
+    for (let i = 0; i < 5; i++ ){
+
+        const dayName = new Date(days.time[i]).toLocaleDateString("en", { weekday : "short"});
+        const icon = getWeatherIcon(days.weathercode[i], 1);
+        const max = Math.round(days.temperature_2m_max[i]);
+        const min = Math.round(days.temperature_2m_min[i]);
+
+         futureDaysContainer.innerHTML += `
+        <div class="flex justify-center items-center mt-3 gap-7 bg-white/30 background-blur-lg rounded-lg px-3 py-1">
+            <p>${dayName}</p>
+            <img src="${icon}" alt="" class="size-[45px]">
+            <p>${max} °C</p>
+            <p class="text-[#c2c2c2]">${min} °C</p>
+        </div>
+    `;
+    }
+
+    const bg = getWeatherBackground(code, isDay);
+    document.body.style.backgroundImage = `url(${bg})`;
+    
 }
 
+searchCity.value = "Shiraz";
+getWeather();
+searchCity.value = "";
 
 
 
